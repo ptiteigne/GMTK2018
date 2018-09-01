@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://test.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Dasher.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Shooter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Runner.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Dasher" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 0, -0.698334 )
+
+[node name="Shooter" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 747.631, 487.535 )
+
+[node name="Runner" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 142.801, 410.949 )
+
+

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://art/playerthing.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.252, 31.5003 )
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( 319.556, 212.535 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+speed = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+
+[node name="DashResetTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 0.625244, 0.625244 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="DashingTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.0954852
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="DashResetTimer" to="." method="_on_DashTimer_timeout"]
+
+[connection signal="timeout" from="DashingTimer" to="." method="_on_DashingTimer_timeout"]
+
+
